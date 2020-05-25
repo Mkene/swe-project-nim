@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TopTenController">
+   <children>
+      <TableView fx:id="toptenTable" editable="true" layoutX="35.0" layoutY="43.0" prefHeight="304.0" prefWidth="530.0">
+        <columns>
+            <TableColumn fx:id="player" prefWidth="200.0" text="Player" />
+            <TableColumn fx:id="steps" prefWidth="50.0" text="Steps" />
+            <TableColumn fx:id="duration" prefWidth="100.0" text="Duration" />
+            <TableColumn fx:id="created" prefWidth="295.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button layoutX="230.0" layoutY="354.0" mnemonicParsing="false" onAction="#back" text="Main Menue">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="218.0" layoutY="8.0" text="Top Ten Games" textFill="#5252a4">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
