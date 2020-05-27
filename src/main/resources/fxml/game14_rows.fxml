@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Game14RowsController">
    <children>
-      <Pane layoutX="3.0" layoutY="52.0" prefHeight="347.0" prefWidth="594.0">
+      <Pane layoutX="14.0" layoutY="75.0" prefHeight="347.0" prefWidth="594.0">
          <children>
             <Label fx:id="player1name" layoutX="9.0" layoutY="5.0" text="player1:">
                <font>
@@ -39,23 +39,45 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 
               </rowConstraints>
-                <Pane fx:id="pane01" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                <Pane fx:id="pane02" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="2" />
-                <Pane fx:id="pane03" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="3" />
-                <Pane fx:id="pane04" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="4" />
-                <Pane fx:id="pane05" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="5" />
-                <Pane fx:id="pane06" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="6" />
-                <Pane fx:id="pane07" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="7" />
-                <Pane fx:id="pane08" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="8" />
-                <Pane fx:id="pane09" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="9" />
-                <Pane fx:id="pane10" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="10" />
-                <Pane fx:id="pane11" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="11" />
-                <Pane fx:id="pane12" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="12" />
-                <Pane fx:id="pane13" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="13" />
-                <Pane fx:id="pane00" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="0" />
+                <Pane fx:id="pane01"  prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <children>
+                     <Circle fx:id="blue1" fill="DODGERBLUE" layoutX="19.0" layoutY="32.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane02" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                <Pane fx:id="pane03" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                  <children>
+                     <Circle fx:id="blue2" fill="DODGERBLUE" layoutX="19.0" layoutY="34.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane04" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                  <children>
+                     <Circle fx:id="blue3" fill="DODGERBLUE" layoutX="15.0" layoutY="33.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane05" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
+                <Pane fx:id="pane06"  prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+                  <children>
+                     <Circle fx:id="blue4" fill="DODGERBLUE" layoutX="14.0" layoutY="31.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane07"  prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" />
+
+
+                <Pane fx:id="pane08" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" />
+                <Pane fx:id="pane09" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9">
+                  <children>
+                     <Circle fx:id="yellow" fill="#f2ff1f" layoutX="21.0" layoutY="35.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" />
+                <Pane fx:id="pane11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" />
+                <Pane fx:id="pane12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" />
+                <Pane fx:id="pane13" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13">
+                  <children>
+                     <Circle fx:id="blue5" fill="DODGERBLUE" layoutX="12.0" layoutY="32.0" onMouseReleased="#movePiece" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                  </children></Pane>
+                <Pane fx:id="pane00" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" />
+
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+
             </GridPane>
             <Button fx:id="resetButton" layoutX="186.0" layoutY="302.0" mnemonicParsing="false" onAction="#resetGame" prefHeight="25.0" prefWidth="58.0" text="Restart" />
             <Button fx:id="doneButton" layoutX="311.0" layoutY="302.0" mnemonicParsing="false" onAction="#finishGame" text="End Game" />

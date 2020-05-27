@@ -1,29 +1,39 @@
 package controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import nimgame.results.GameResult;
 import nimgame.results.GameResultDao;
 
 
-
+import javax.swing.*;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,12 +47,9 @@ public class Game14RowsController {
     private String winner;
     private boolean isSolved = false;
     private GameResultDao gameResultDao;
-    private String BLUE1 = "/pictures/blue_play01.jpg";
-    private String BLUE2 = "/pictures/blue_play03.jpg";
-    private String BLUE3 = "/pictures/blue_play04.jpg";
-    private String BLUE4 = "/pictures/blue_play05.jpg";
-    private String BLUE5 = "/pictures/blue_play06.jpg";
-    private String YELLOW = "/pictures/yellow_play1.jpg";
+
+
+
 
     @FXML
     private Label solvedLabel;
@@ -60,16 +67,15 @@ public class Game14RowsController {
     private Label player2name;
     @FXML
     private Button doneButton;
-
     @FXML
-    void paneMouseClicked(MouseEvent event) {
-        //int rowIndex = (GridPane.getRowIndex((Node) event.getSource()) == null) ? 0 : GridPane.getRowIndex((Node) event.getSource());
-        int colIndex = (GridPane.getColumnIndex((Node) event.getSource()) == null) ? 0 : GridPane.getColumnIndex((Node) event.getSource());
-      //  if (availablePanesToMove.contains((Pane) event.getSource()) && event.getSource() instanceof Pane){
+    private Pane pane01 ;
+    @FXML
+    public Circle blue1;
 
-       // }
 
-    }
+    private final List<Pane> panes = new ArrayList<>();
+
+
     /**
      * Sets the name of the players in game.fxml.
      */
@@ -96,6 +102,36 @@ public class Game14RowsController {
         pl1turn.setOpacity(1.0);
         pl2turn.setOpacity(0.0);
         //log.info("Game reset.");
+    }
+
+
+    public void movePiece(MouseEvent evt) {
+       // int clickedColumn = GridPane.getColumnIndex((Node)MouseEvent.getSource());
+        //int clickedRow = GridPane.getRowIndex((Node)MouseEvent.getSource());
+
+
+    }
+
+
+
+
+
+    /**
+     * Moves a circle to coordinate(x,y).
+     * @param gameCircle the circle that needs to be moved.
+     * @param x x-coordinate of the new cell.
+     * @param y y-coordinate of the new cell.
+     */
+    public void moveCoordinates(Circle gameCircle, Double x, Double y) {
+        final Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(javafx.util.Duration.millis(100),
+                        new KeyValue(gameCircle.layoutXProperty(), x),
+                        new KeyValue(gameCircle.layoutYProperty(), y),
+                        new KeyValue(gameCircle.opacityProperty(), 1.0d)
+                )
+        );
+        timeline.play();
     }
 
     /**
@@ -127,10 +163,10 @@ public class Game14RowsController {
         pl1turn.setOpacity(1);
         pl2turn.setOpacity(0);
 
-        //gameGrid.add(BLUE1,1 ,0);
-        //gameGrid.add(BLUE2,GridPane.getColumnIndex("3",) ,GridPane.getRowIndex("0"));
-        //gameGrid.add(BLUE3,GridPane.getColumnIndex("4",) ,GridPane.getRowIndex("0"));
-        //gameGrid.add(BLUE4,GridPane.getColumnIndex("6",) ,GridPane.getRowIndex("0"));
+
+
+
+
 
 
     }
@@ -156,7 +192,7 @@ public class Game14RowsController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
-        //log.info("Finished game, loading Top Ten scene.");
+        log.info("Finished game, loading Top Ten scene.");
     }
     private GameResult getResult() {
 
