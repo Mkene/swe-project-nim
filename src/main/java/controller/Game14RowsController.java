@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,12 @@ public class Game14RowsController {
     private String winner;
     private boolean isSolved = false;
     private GameResultDao gameResultDao;
+    private String BLUE1 = "/pictures/blue_play01.jpg";
+    private String BLUE2 = "/pictures/blue_play03.jpg";
+    private String BLUE3 = "/pictures/blue_play04.jpg";
+    private String BLUE4 = "/pictures/blue_play05.jpg";
+    private String BLUE5 = "/pictures/blue_play06.jpg";
+    private String YELLOW = "/pictures/yellow_play1.jpg";
 
     @FXML
     private Label solvedLabel;
@@ -46,21 +53,23 @@ public class Game14RowsController {
     @FXML
     private Circle pl2turn;
     @FXML
-    private Label stepLabel;
+    private Label playerSteps;
     @FXML
-    private Label playername1;
+    private Label player1name;
     @FXML
-    private Label playername2;
+    private Label player2name;
     @FXML
     private Button doneButton;
 
-    private Image image1 = new Image(getClass().getResource("/pictures/blue_play01.jpg").toExternalForm());
-    private Image image2 = new Image(getClass().getResource("/pictures/blue_play03.jpg").toExternalForm());
-    private Image image3 = new Image(getClass().getResource("/pictures/blue_play04.jpg").toExternalForm());
-    private Image image4 = new Image(getClass().getResource("/pictures/blue_play05.jpg").toExternalForm());
-    private Image image5 = new Image(getClass().getResource("/pictures/blue_play06.jpg").toExternalForm());
-    private Image image = new Image(getClass().getResource("/pictures/yellow_play1.jpg").toExternalForm());
+    @FXML
+    void paneMouseClicked(MouseEvent event) {
+        //int rowIndex = (GridPane.getRowIndex((Node) event.getSource()) == null) ? 0 : GridPane.getRowIndex((Node) event.getSource());
+        int colIndex = (GridPane.getColumnIndex((Node) event.getSource()) == null) ? 0 : GridPane.getColumnIndex((Node) event.getSource());
+      //  if (availablePanesToMove.contains((Pane) event.getSource()) && event.getSource() instanceof Pane){
 
+       // }
+
+    }
     /**
      * Sets the name of the players in game.fxml.
      */
@@ -68,8 +77,8 @@ public class Game14RowsController {
         this.play1 = play1;
         this.play2 = play2;
 
-        playername1.setText("Player 1: " + this.play1);
-        playername2.setText("Player 2: " + this.play2);
+        player1name.setText("Player 1: " + this.play1);
+        player2name.setText("Player 2: " + this.play2);
     }
 
     /**
@@ -81,7 +90,7 @@ public class Game14RowsController {
         initialize();
         beginGame = Instant.now();
         steps = 0;
-        stepLabel.setText(String.valueOf(steps));
+        playerSteps.setText(String.valueOf(steps));
         solvedLabel.setText("");
         doneButton.setText("Give Up");
         pl1turn.setOpacity(1.0);
@@ -118,13 +127,19 @@ public class Game14RowsController {
         pl1turn.setOpacity(1);
         pl2turn.setOpacity(0);
 
+        //gameGrid.add(BLUE1,1 ,0);
+        //gameGrid.add(BLUE2,GridPane.getColumnIndex("3",) ,GridPane.getRowIndex("0"));
+        //gameGrid.add(BLUE3,GridPane.getColumnIndex("4",) ,GridPane.getRowIndex("0"));
+        //gameGrid.add(BLUE4,GridPane.getColumnIndex("6",) ,GridPane.getRowIndex("0"));
+
+
     }
     /**
-     * Increments the stepCount and changes it in game.fxml.
+     * Increases the stepCount and changes it in game.fxml.
      */
     public void incrementStepCount() {
         steps++;
-        stepLabel.setText(String.valueOf(steps));
+        playerSteps.setText(String.valueOf(steps));
     }
 
     /**
@@ -137,7 +152,7 @@ public class Game14RowsController {
             gameResultDao.persist(getResult());
         }
 
-        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/topten.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/top_ten.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -154,3 +169,9 @@ public class Game14RowsController {
         return result;
     }
 }
+   // private Image image1 = new Image(getClass().getResource("/pictures/blue_play01.jpg").toExternalForm());
+    //private Image image2 = new Image(getClass().getResource("/pictures/blue_play03.jpg").toExternalForm());
+    //private Image image3 = new Image(getClass().getResource("/pictures/blue_play04.jpg").toExternalForm());
+    //private Image image4 = new Image(getClass().getResource("/pictures/blue_play05.jpg").toExternalForm());
+    //private Image image5 = new Image(getClass().getResource("/pictures/blue_play06.jpg").toExternalForm());
+    //private Image image = new Image(getClass().getResource("/pictures/yellow_play1.jpg").toExternalForm());

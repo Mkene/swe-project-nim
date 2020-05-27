@@ -14,7 +14,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="payer2name" layoutX="305.0" layoutY="5.0" text="player2: ">
+            <Label fx:id="player2name" layoutX="305.0" layoutY="5.0" text="player2: ">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -39,17 +39,23 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 
               </rowConstraints>
+                <Pane fx:id="pane01" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                <Pane fx:id="pane02" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="2" />
+                <Pane fx:id="pane03" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="3" />
+                <Pane fx:id="pane04" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="4" />
+                <Pane fx:id="pane05" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="5" />
+                <Pane fx:id="pane06" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="6" />
+                <Pane fx:id="pane07" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="7" />
+                <Pane fx:id="pane08" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="8" />
+                <Pane fx:id="pane09" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="9" />
+                <Pane fx:id="pane10" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="10" />
+                <Pane fx:id="pane11" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="11" />
+                <Pane fx:id="pane12" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="12" />
+                <Pane fx:id="pane13" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="13" />
+                <Pane fx:id="pane00" onMouseClicked="#paneMouseClicked" prefHeight="200.0" prefWidth="200.0"  GridPane.columnIndex="0" />
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <children>
-                  <Circle fill="DODGERBLUE" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
-                  <Circle fill="DODGERBLUE" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" />
-                  <Circle fill="DODGERBLUE" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" />
-                  <Circle fill="DODGERBLUE" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" />
-                  <Circle fill="DODGERBLUE" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" />
-                  <Circle fill="#e7ff2e" radius="12.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" />
-               </children>
             </GridPane>
             <Button fx:id="resetButton" layoutX="186.0" layoutY="302.0" mnemonicParsing="false" onAction="#resetGame" prefHeight="25.0" prefWidth="58.0" text="Restart" />
             <Button fx:id="doneButton" layoutX="311.0" layoutY="302.0" mnemonicParsing="false" onAction="#finishGame" text="End Game" />

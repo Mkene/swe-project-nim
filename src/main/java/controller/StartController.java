@@ -28,17 +28,17 @@ public class StartController {
 
     public void startAction(ActionEvent actionEvent) throws IOException {
         if (player_1.getText().isEmpty()||player_2.getText().isEmpty()) {
-            errorLabel.setText("* Player name is empty!");
+            errorLabel.setText("*Please check Player name !");
 
         } else   {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/fxml/game14.fxml"));
-            //Parent root = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/game14_rows.fxml"));
+            Parent root = fxmlLoader.load();
             fxmlLoader.<Game14RowsController>getController().initdata(player_1.getText() ,player_2.getText());
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.setScene(new Scene(root));
             stage.show();
-            //log.info("Player1 is set to {}, loading game scene.", player_1.getText());
-            //log.info("Player2 is set to {}, loading game scene.", player_2.getText());
+            log.info("Player1 is set to {}, loading game scene.", player_1.getText());
+            log.info("Player2 is set to {}, loading game scene.", player_2.getText());
         }
 
     }
